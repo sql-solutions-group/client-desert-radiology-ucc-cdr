@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="UCC">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=DRSISSVRV01;Initial Catalog=UCC</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source UCC</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>3c8e8fe4-e6a2-482d-863e-8867e0b6f9eb</DataSourceID>
+</RptDataSource>

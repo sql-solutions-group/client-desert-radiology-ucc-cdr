@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "UCC", "UCC\UCC.dtproj", "{362AC380-88B9-4FE3-93D2-1F0399C66830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{362AC380-88B9-4FE3-93D2-1F0399C66830}.Development|Default.ActiveCfg = Development
+		{362AC380-88B9-4FE3-93D2-1F0399C66830}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BCBBA68D-0B11-475F-9E2A-1F3EF5A80BE9}
+	EndGlobalSection
+EndGlobal

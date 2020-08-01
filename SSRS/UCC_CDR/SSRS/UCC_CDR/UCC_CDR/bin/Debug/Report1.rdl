@@ -1,0 +1,998 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" MustUnderstand="df">
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="UCC">
+      <DataSourceReference>UCC</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>ce868607-4bf3-45b8-bdb2-0e905778a5f4</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>UCC</DataSourceName>
+        <CommandText>SELECT a.[finalCalledPartyNumber] 
+      ,a.[finalCalledPartyNumberShort]
+      ,a.[finalCalledPartyUnicodeLoginUserID]
+	  ,COUNT(1)                                                  AS [CallsHandled]
+	  ,SUM([Answer])                                             AS [TotalSpeedAnswer]
+	  ,AVG([Answer])                                             AS [AverageSpeedAnswer]
+	  ,SUM([Handle])                                             AS [HandleTime] 
+	  ,AVG([Handle])                                             AS [AverageHandleTime]                                       
+  FROM [QuePerformance] a 
+ WHERE a.[finalCalledPartyUnicodeLoginUserID] &lt;&gt; '\'
+ GROUP BY a.[finalCalledPartyNumber] , a.[finalCalledPartyNumberShort], a.[finalCalledPartyUnicodeLoginUserID]
+ORDER BY a.[finalCalledPartyUnicodeLoginUserID];</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="finalCalledPartyNumber">
+          <DataField>finalCalledPartyNumber</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="finalCalledPartyNumberShort">
+          <DataField>finalCalledPartyNumberShort</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="finalCalledPartyUnicodeLoginUserID">
+          <DataField>finalCalledPartyUnicodeLoginUserID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CallsHandled">
+          <DataField>CallsHandled</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TotalSpeedAnswer">
+          <DataField>TotalSpeedAnswer</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AverageSpeedAnswer">
+          <DataField>AverageSpeedAnswer</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="HandleTime">
+          <DataField>HandleTime</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AverageHandleTime">
+          <DataField>AverageHandleTime</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Report1</Value>
+                    <Style>
+                      <FontFamily>Segoe UI Light</FontFamily>
+                      <FontSize>24pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>textbox1</rd:DefaultName>
+            <Height>0.43in</Height>
+            <Style>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Tablix Name="List1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>6in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>1.14in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Rectangle Name="List1_Contents">
+                          <ReportItems>
+                            <Textbox Name="finalCalledPartyUnicodeLoginUserID">
+                              <CanGrow>true</CanGrow>
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Fields!finalCalledPartyUnicodeLoginUserID.Value</Value>
+                                      <Style>
+                                        <FontFamily />
+                                        <FontSize>14pt</FontSize>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <rd:DefaultName>finalCalledPartyUnicodeLoginUserID</rd:DefaultName>
+                              <Height>0.27in</Height>
+                              <Style>
+                                <FontFamily />
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Tablix Name="table1">
+                              <TablixBody>
+                                <TablixColumns>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>1in</Width>
+                                  </TablixColumn>
+                                </TablixColumns>
+                                <TablixRows>
+                                  <TablixRow>
+                                    <Height>0.22in</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>final Called Party Number Short</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#666666</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox2</rd:DefaultName>
+                                            <Height>0.22in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox4">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Calls Handled</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#666666</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <FontFamily />
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox4</rd:DefaultName>
+                                            <Height>0.22in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox5">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Total Speed Answer</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#666666</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <FontFamily />
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox5</rd:DefaultName>
+                                            <Height>0.22in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox6">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Average Speed Answer</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#666666</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <FontFamily />
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox6</rd:DefaultName>
+                                            <Height>0.22in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox7">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Handle Time</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#666666</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <FontFamily />
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox7</rd:DefaultName>
+                                            <Height>0.22in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox8">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>Average Handle Time</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontSize>11pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#666666</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <FontFamily />
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox8</rd:DefaultName>
+                                            <Height>0.22in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                  <TablixRow>
+                                    <Height>0.21in</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="finalCalledPartyNumberShort">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!finalCalledPartyNumberShort.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>finalCalledPartyNumberShort</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox9">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Sum(Fields!CallsHandled.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox9</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox10">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Sum(Fields!TotalSpeedAnswer.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox10</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox11">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Sum(Fields!AverageSpeedAnswer.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox11</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox12">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Sum(Fields!HandleTime.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox12</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox13">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Sum(Fields!AverageHandleTime.Value)</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <FontWeight>Bold</FontWeight>
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox13</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                  <TablixRow>
+                                    <Height>0.21in</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="textbox3">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>textbox3</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="CallsHandled">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!CallsHandled.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>CallsHandled</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="TotalSpeedAnswer">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!TotalSpeedAnswer.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>TotalSpeedAnswer</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="AverageSpeedAnswer">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!AverageSpeedAnswer.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>AverageSpeedAnswer</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="HandleTime">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!HandleTime.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>HandleTime</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="AverageHandleTime">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!AverageHandleTime.Value</Value>
+                                                    <Style>
+                                                      <FontFamily />
+                                                      <Color>#333333</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>AverageHandleTime</rd:DefaultName>
+                                            <Height>0.21in</Height>
+                                            <Width>1in</Width>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Style>Solid</Style>
+                                              </BottomBorder>
+                                              <FontFamily />
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                </TablixRows>
+                              </TablixBody>
+                              <TablixColumnHierarchy>
+                                <TablixMembers>
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                </TablixMembers>
+                              </TablixColumnHierarchy>
+                              <TablixRowHierarchy>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <KeepWithGroup>After</KeepWithGroup>
+                                    <RepeatOnNewPage>true</RepeatOnNewPage>
+                                    <KeepTogether>true</KeepTogether>
+                                  </TablixMember>
+                                  <TablixMember>
+                                    <Group Name="table1_finalCalledPartyNumberShort">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!finalCalledPartyNumberShort.Value</GroupExpression>
+                                      </GroupExpressions>
+                                    </Group>
+                                    <SortExpressions>
+                                      <SortExpression>
+                                        <Value>=Fields!finalCalledPartyNumberShort.Value</Value>
+                                      </SortExpression>
+                                    </SortExpressions>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <KeepWithGroup>After</KeepWithGroup>
+                                        <KeepTogether>true</KeepTogether>
+                                      </TablixMember>
+                                      <TablixMember>
+                                        <Group Name="table1_Details_Group">
+                                          <DataElementName>Detail</DataElementName>
+                                        </Group>
+                                        <TablixMembers>
+                                          <TablixMember />
+                                        </TablixMembers>
+                                        <DataElementName>Detail_Collection</DataElementName>
+                                        <DataElementOutput>Output</DataElementOutput>
+                                        <KeepTogether>true</KeepTogether>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixRowHierarchy>
+                              <DataSetName>DataSet1</DataSetName>
+                              <Top>0.5in</Top>
+                              <Style>
+                                <FontFamily />
+                              </Style>
+                            </Tablix>
+                          </ReportItems>
+                          <KeepTogether>true</KeepTogether>
+                          <Style />
+                        </Rectangle>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="list1_finalCalledPartyUnicodeLoginUserID">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!finalCalledPartyUnicodeLoginUserID.Value</GroupExpression>
+                    </GroupExpressions>
+                    <PageBreak>
+                      <BreakLocation>Between</BreakLocation>
+                    </PageBreak>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!finalCalledPartyUnicodeLoginUserID.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <PageBreak>
+              <BreakLocation>End</BreakLocation>
+            </PageBreak>
+            <Top>0.43in</Top>
+            <Style>
+              <FontSize>14pt</FontSize>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>1.57in</Height>
+        <Style />
+      </Body>
+      <Width>6in</Width>
+      <Page>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Invalid</rd:ReportUnitType>
+  <rd:ReportID>08086022-7ec1-4194-944a-82117b55d18f</rd:ReportID>
+</Report>

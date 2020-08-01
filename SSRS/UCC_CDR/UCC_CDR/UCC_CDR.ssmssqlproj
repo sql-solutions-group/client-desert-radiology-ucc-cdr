@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="UCC_CDR">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="DRSISSVRV01:DR\sa_jkirkpatrick">
+          <Created>2019-07-24T13:40:55.7845049-07:00</Created>
+          <Type>SQL</Type>
+          <Server>DRSISSVRV01</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>Jabber</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="PU_CDRARC_ADDALL.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DRSISSVRV01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DRSISSVRV01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PU_CDRARC_ADDALL.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PU_CDRQue_Get.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DRSISSVRV01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DRSISSVRV01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PU_CDRQue_Get.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PU_CDRQuePerformance_ADD.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DRSISSVRV01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DRSISSVRV01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PU_CDRQuePerformance_ADD.sql</FullPath>
+        </FileNode>
+        <FileNode Name="VU_CDRQueCreate.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DRSISSVRV01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DRSISSVRV01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>VU_CDRQueCreate.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Working.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DRSISSVRV01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DRSISSVRV01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Working.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Working1.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:DRSISSVRV01:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>DRSISSVRV01</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Working1.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

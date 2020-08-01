@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1082
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "UCC_CDR", "UCC_CDR\UCC_CDR.rptproj", "{13063F2A-4D5C-49A2-8B76-B567F660CABE}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "UCC_CDR_Package", "..\..\SSIS\UCC_CDR_Package\UCC_CDR_Package.dtproj", "{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Development|Default = Development|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Debug|Default.ActiveCfg = Debug
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Debug|Default.Build.0 = Debug
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Debug|Default.Deploy.0 = Debug
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.DebugLocal|Default.Build.0 = DebugLocal
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Development|Default.ActiveCfg = DebugLocal
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Development|Default.Build.0 = DebugLocal
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Development|Default.Deploy.0 = DebugLocal
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Release|Default.ActiveCfg = Release
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Release|Default.Build.0 = Release
+		{13063F2A-4D5C-49A2-8B76-B567F660CABE}.Release|Default.Deploy.0 = Release
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.Debug|Default.ActiveCfg = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.Debug|Default.Build.0 = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.DebugLocal|Default.ActiveCfg = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.DebugLocal|Default.Build.0 = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.Development|Default.ActiveCfg = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.Development|Default.Build.0 = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.Release|Default.ActiveCfg = Development
+		{BB76A8CC-FFAC-4F13-B9A6-BCDBA84982EF}.Release|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2513EFB1-32F6-4DEB-BE1B-E882EF1F52BA}
+	EndGlobalSection
+EndGlobal
